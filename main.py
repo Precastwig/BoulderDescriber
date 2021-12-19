@@ -5,8 +5,16 @@ import random
 holdtypes = ["crimp", "sloper", "jug", "pocket"]
 connectivetypes = ["make a", "do a", "then make a", "then do a"]
 
-levelofdetail = random.randint(0, 3)
-lengthofclimb = random.randint(1, 5)
+lengthofclimb = 0
+lengthofclimb = int(input("Enter a length (number of moves) of climb:"))
+while lengthofclimb <= 0:
+    print("Length input invalid")
+    lengthofclimb = int(input("Try again:"))
+
+levelofdetail = int(input("Enter the level of description desired (0-3):"))
+while levelofdetail < 0 or levelofdetail > 3:
+    print("Description level input invalid")
+    levelofdetail = int(input("Try again:"))
 
 def getRandomHold(lod: int):
     holdt = random.choice(holdtypes)
